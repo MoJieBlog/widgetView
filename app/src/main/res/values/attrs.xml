@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CommonView">
+        <attr name="type" format="integer"/>
+        <attr name="mode" format="integer"/>
+        <attr name="wide" format="integer"/>
+        <attr name="color" format="color"/>
+        <attr name="orientation" format="integer"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="横线"/>
+
+        <com.lxp.widgetview.view.CommonView
+            android:layout_width="200dp"
+            android:layout_height="5dp"
+            app:color="#e60012"
+            app:mode="0"
+            app:orientation="0"
+            app:type="0"
+            app:wide="5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="竖线"/>
+
+        <com.lxp.widgetview.view.CommonView
+            android:layout_width="5dp"
+            android:layout_height="200dp"
+            app:color="#e60012"
+            app:mode="0"
+            app:orientation="1"
+            app:type="0"
+            app:wide="5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="斜线"/>
+
+        <com.lxp.widgetview.view.CommonView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:color="#e60012"
+            app:mode="0"
+            app:orientation="2"
+            app:type="0"
+            app:wide="5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="空心圆"/>
+        <!--圆，空心-->
+        <com.lxp.widgetview.view.CommonView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:color="#e60012"
+            app:mode="0"
+            app:type="1"
+            app:wide="5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="实心圆"/>
+        <!--圆，实心-->
+        <com.lxp.widgetview.view.CommonView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:color="#e60012"
+            app:mode="1"
+            app:type="1"
+            app:wide="5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="空心矩形"/>
+        <!--矩形，空心-->
+        <com.lxp.widgetview.view.CommonView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:color="#e60012"
+            app:mode="0"
+            app:type="2"
+            app:wide="5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="实心矩形"/>
+        <!--矩形，实心-->
+        <com.lxp.widgetview.view.CommonView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:color="#e60012"
+            app:mode="1"
+            app:type="2"
+            app:wide="5"/>
+    </LinearLayout>
+</ScrollView>
