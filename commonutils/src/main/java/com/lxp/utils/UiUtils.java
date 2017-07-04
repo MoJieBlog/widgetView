@@ -1,12 +1,28 @@
 package com.lxp.utils;
 
 import android.content.Context;
+import android.view.WindowManager;
 
 /**
  * Created by Li Xiaopeng on 2017/7/4.
  */
 
 public class UiUtils {
+
+    /**
+     * 获取屏幕宽
+     * @param context
+     * @return
+     */
+    public static int getWinWide(Context context){
+        WindowManager wm = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+
+        int width = wm.getDefaultDisplay().getWidth();
+        int height = wm.getDefaultDisplay().getHeight();
+
+        return width;
+    }
     /**
      * dp转px
      *
