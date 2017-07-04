@@ -4,24 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lxp.widgetview.activity.MainActivity">
+    tools:context="com.lxp.widgetview.activity.ViewActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
-
         <Button
-            android:id="@+id/btn_line"
+            android:id="@+id/btn_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="常见图形，线，圆"/>
+            android:text="计时"/>
 
-        <Button
-            android:id="@+id/btn_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="继承Android原生View"/>
 
     </LinearLayout>
 

@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     private Activity mActivity = MainActivity.this;
 
-    private Button btn_line;
+    private Button btn_line,btn_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void init() {
         btn_line = (Button) findViewById(R.id.btn_line);
+        btn_view = (Button) findViewById(R.id.btn_view);
         btn_line.setOnClickListener(this);
+        btn_view.setOnClickListener(this);
     }
 
     @Override
@@ -35,6 +37,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_line:
                 Intent intent = new Intent(mActivity,CommonActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.btn_view:
+                Intent intent1 = new Intent(mActivity,ViewActivity.class);
+                startActivity(intent1);
                 break;
             default:
                 break;

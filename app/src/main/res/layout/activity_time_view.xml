@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lxp.widgetview.activity.ViewActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="倒计时一分钟"/>
+
+        <com.lxp.widgetview.view.TimerView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textColor="#e60012"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="计时"/>
+
+        <com.lxp.widgetview.view.TimerView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textColor="#e60012"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开始"/>
+
+        <Button
+            android:id="@+id/btn_pause"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="暂停"/>
+        <Button
+            android:id="@+id/btn_restart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="继续"/>
+    </LinearLayout>
+
+</LinearLayout>

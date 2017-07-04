@@ -16,7 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CommonActivity">
+        <activity
+            android:name=".activity.CommonActivity"
+            android:windowSoftInputMode="adjustResize|adjustPan">
+        </activity>
+        <activity android:name=".activity.ViewActivity">
+        </activity>
+        <activity android:name=".activity.TimeViewActivity">
         </activity>
     </application>
 

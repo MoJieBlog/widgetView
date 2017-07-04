@@ -11,6 +11,9 @@ import android.view.View;
 import com.lxp.widgetview.R;
 
 /**
+ * 示例用于展示简单的画笔划线，圆，矩形。
+ * 构造方法的解释
+ * attrs的运用
  * Created by Li Xiaopeng on 2017/6/29.
  */
 
@@ -75,12 +78,13 @@ public class CommonView extends View {
 
     int height_me;
     int wide_me;
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-         height_me = MeasureSpec.getSize(heightMeasureSpec);
-         wide_me = MeasureSpec.getSize(widthMeasureSpec);
+        height_me = MeasureSpec.getSize(heightMeasureSpec);
+        wide_me = MeasureSpec.getSize(widthMeasureSpec);
 
         setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), height_me);
 
@@ -115,10 +119,10 @@ public class CommonView extends View {
             }
 
         } else if (type == TYPE_RECTANGLE) {
-            canvas.drawRect(wide, wide, wide_me-2*wide, height_me-2*wide, mPaint);
+            canvas.drawRect(wide, wide, wide_me - 2 * wide, height_me - 2 * wide, mPaint);
         } else if (type == TYPE_CIRCLE) {
 
-            canvas.drawCircle(wide_me/2,height_me/2,wide_me/2-2*wide,mPaint);
+            canvas.drawCircle(wide_me / 2, height_me / 2, wide_me / 2 - 2 * wide, mPaint);
         }
 
 
