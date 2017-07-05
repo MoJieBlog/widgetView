@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".activity.TimeViewActivity">
         </activity>
+        <activity android:name=".activity.DragActivity">
+        </activity>
     </application>
 
 </manifest>

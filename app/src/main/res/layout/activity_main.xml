@@ -23,6 +23,12 @@
             android:layout_height="wrap_content"
             android:text="继承Android原生View"/>
 
+        <Button
+            android:id="@+id/btn_drag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="onTouch练习,拖拽控件"/>
+
     </LinearLayout>
 
 </ScrollView>
