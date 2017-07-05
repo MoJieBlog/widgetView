@@ -1,28 +1,30 @@
-# widgetView
-自定义View从零到精通
-欢迎加群538430501，安卓自定义控件交流群
+ widgetView
+自定义View从零到精通  
+=
+欢迎加群538430501，安卓自定义控件交流群  
 
 
-包含：
-  划线，圆，矩形；
-  计时器，支持倒计时和计时；
-  新增一个可拖拽的图片demo
-  
-  工具库包括
-      AppUtils  
-        获取应用版本号
-        启动另一个外部应用
-        双击退出应用
-      DiviceUtils  
-        打电话
-        获取设备号
-        获取uuid
-      EditTextUtils  
-        切换键盘可见性
+
+#包含： 
+  划线，圆，矩形；  
+  计时器，支持倒计时和计时；  
+  新增一个可拖拽的图片demo  
+  
+ ## 工具库包括 
+      AppUtils    
+        获取应用版本号   
+        启动另一个外部应用   
+        双击退出应用   
+      DiviceUtils    
+        打电话   
+        获取设备号   
+        获取uuid<>   
+      EditTextUtils   
+        切换键盘可见性 
         切换密码可见性
         光标移到最后
-        关闭键盘
-      EncryptDecrypt   
+        关闭键盘  
+      EncryptDecrypt   
         常见的加密方法，包括SHA1,MD5，base64
       NumberUtils  
        获取指定长度的随机字符串
