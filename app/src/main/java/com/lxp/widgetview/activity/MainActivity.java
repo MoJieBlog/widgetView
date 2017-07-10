@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     private Activity mActivity = MainActivity.this;
 
-    private Button btn_line,btn_view,btn_drag;
+    private Button btn_line,btn_view,btn_drag,btn_draw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +28,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_line = (Button) findViewById(R.id.btn_line);
         btn_view = (Button) findViewById(R.id.btn_view);
         btn_drag = (Button) findViewById(R.id.btn_drag);
+        btn_draw = (Button) findViewById(R.id.btn_draw);
         btn_line.setOnClickListener(this);
         btn_view.setOnClickListener(this);
         btn_drag.setOnClickListener(this);
+        btn_draw.setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +49,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_drag:
                 intent.setClass(mActivity,DragActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_draw:
+                intent.setClass(mActivity,DrawActivity.class);
                 startActivity(intent);
                 break;
             default:

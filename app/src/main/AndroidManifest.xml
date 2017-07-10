@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".activity.DragActivity">
         </activity>
+        <activity android:name=".activity.DrawActivity">
+        </activity>
     </application>
 
 </manifest>

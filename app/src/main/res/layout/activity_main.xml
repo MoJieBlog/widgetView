@@ -27,8 +27,13 @@
             android:id="@+id/btn_drag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="onTouch练习,拖拽控件"/>
+            android:text="onTouch练习,图片拖拽控件"/>
 
+        <Button
+            android:id="@+id/btn_draw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="画板"/>
     </LinearLayout>
 
 </ScrollView>
