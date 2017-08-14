@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.lxp.widgetview.R;
+import com.lxp.widgetview.activity.bezier.activity.BezierActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.btn_bezier:
-                intent.setClass(mActivity,DrawActivity.class);
+                intent.setClass(mActivity,BezierActivity.class);
                 startActivity(intent);
                 break;
             default:
