@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.lxp.widgetview">
+    package="com.lxp.widgetview">
 
     <application
         android:allowBackup="true"
@@ -11,23 +11,21 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.CommonActivity"
-            android:windowSoftInputMode="adjustResize|adjustPan">
-        </activity>
-        <activity android:name=".activity.ViewActivity">
-        </activity>
-        <activity android:name=".activity.TimeViewActivity">
-        </activity>
-        <activity android:name=".activity.DragActivity">
-        </activity>
-        <activity android:name=".activity.DrawActivity">
-        </activity>
+            android:windowSoftInputMode="adjustResize|adjustPan" />
+        <activity android:name=".activity.ViewActivity" />
+        <activity android:name=".activity.TimeViewActivity" />
+        <activity android:name=".activity.DragActivity" />
+        <activity android:name=".activity.DrawActivity" />
+        <activity android:name=".activity.bezier.activity.BezierActivity" />
+        <activity android:name=".activity.bezier.activity.OneBezierActivity" />
+        <activity android:name=".activity.bezier.activity.TwoBezierActivity"></activity>
     </application>
 
 </manifest>
