@@ -21,7 +21,7 @@ public class BezierUitls {
      *
      */
     public static int getBezierPoiontX(int x1,int x2,int copies,int total){
-        int bezierX = (1 - copies / total) * x2 + x1 * copies / total;
+        int bezierX = (x2-x1)*copies/total+x1;
         return bezierX;
     }
 }
