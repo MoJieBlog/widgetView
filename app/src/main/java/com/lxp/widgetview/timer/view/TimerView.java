@@ -1,4 +1,4 @@
-package com.lxp.widgetview.view;
+package com.lxp.widgetview.timer.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -8,7 +8,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.lxp.widgetview.R;
-import com.lxp.widgetview.activity.bezier.activity.BezierActivity;
+import com.lxp.widgetview.bezier.activity.BezierActivity;
+import com.lxp.widgetview.common.activity.CommonActivity;
+import com.lxp.widgetview.drag.activity.DragActivity;
+import com.lxp.widgetview.draw.activity.DrawActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

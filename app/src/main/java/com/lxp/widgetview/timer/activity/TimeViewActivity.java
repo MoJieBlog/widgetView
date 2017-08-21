@@ -1,4 +1,4 @@
-package com.lxp.widgetview.activity;
+package com.lxp.widgetview.timer.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.lxp.widgetview.R;
-import com.lxp.widgetview.view.TimerView;
+import com.lxp.widgetview.timer.view.TimerView;
 
 public class TimeViewActivity extends AppCompatActivity implements View.OnClickListener {
 

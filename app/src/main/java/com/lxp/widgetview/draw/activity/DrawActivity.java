@@ -1,15 +1,18 @@
-package com.lxp.widgetview.activity.bezier.activity;
+package com.lxp.widgetview.draw.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.lxp.widgetview.R;
 
-public class TwoBezierActivity extends AppCompatActivity {
+/**
+ * 画板
+ */
+public class DrawActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_two_bezier);
+        setContentView(R.layout.activity_draw);
     }
 }

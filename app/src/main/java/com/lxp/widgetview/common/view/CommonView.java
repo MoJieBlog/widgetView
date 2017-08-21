@@ -1,4 +1,4 @@
-package com.lxp.widgetview.view;
+package com.lxp.widgetview.common.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;

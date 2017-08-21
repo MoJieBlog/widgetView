@@ -1,4 +1,4 @@
-package com.lxp.widgetview.activity;
+package com.lxp.widgetview.common.activity;
 
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;

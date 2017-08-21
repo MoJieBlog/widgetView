@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lxp.widgetview.activity.bezier.activity.TwoBezierActivity">
+    tools:context=".bezier.activity.TwoBezierActivity">
 
 
     <LinearLayout
@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.lxp.widgetview.activity.bezier.view.TwoBezierView
+        <com.lxp.widgetview.bezier.view.TwoBezierView
             android:id="@+id/bzone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

@@ -1,4 +1,4 @@
-package com.lxp.widgetview.activity;
+package com.lxp.widgetview.drag.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

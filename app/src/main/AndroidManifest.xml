@@ -17,15 +17,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.CommonActivity"
+            android:name=".common.activity.CommonActivity"
             android:windowSoftInputMode="adjustResize|adjustPan" />
         <activity android:name=".activity.ViewActivity" />
-        <activity android:name=".activity.TimeViewActivity" />
-        <activity android:name=".activity.DragActivity" />
-        <activity android:name=".activity.DrawActivity" />
-        <activity android:name=".activity.bezier.activity.BezierActivity" />
-        <activity android:name=".activity.bezier.activity.OneBezierActivity" />
-        <activity android:name=".activity.bezier.activity.TwoBezierActivity"></activity>
+        <activity android:name=".timer.activity.TimeViewActivity" />
+        <activity android:name=".drag.activity.DragActivity" />
+        <activity android:name=".draw.activity.DrawActivity" />
+        <activity android:name=".bezier.activity.BezierActivity" />
+        <activity android:name=".bezier.activity.OneBezierActivity" />
+        <activity android:name=".bezier.activity.TwoBezierActivity"></activity>
     </application>
 
 </manifest>

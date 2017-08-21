@@ -18,7 +18,7 @@
             android:layout_marginTop="30dp"
             android:text="倒计时一分钟"/>
 
-        <com.lxp.widgetview.view.TimerView
+        <com.lxp.widgetview.timer.view.TimerView
             android:id="@+id/tv_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:layout_marginTop="30dp"
             android:text="计时"/>
 
-        <com.lxp.widgetview.view.TimerView
+        <com.lxp.widgetview.timer.view.TimerView
             android:id="@+id/tv_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -18,7 +18,7 @@
             android:layout_marginTop="20dp"
             android:text="横线"/>
 
-        <com.lxp.widgetview.view.CommonView
+        <com.lxp.widgetview.common.view.CommonView
             android:layout_width="200dp"
             android:layout_height="5dp"
             app:color="#e60012"
@@ -33,7 +33,7 @@
             android:layout_marginTop="20dp"
             android:text="竖线"/>
 
-        <com.lxp.widgetview.view.CommonView
+        <com.lxp.widgetview.common.view.CommonView
             android:layout_width="5dp"
             android:layout_height="200dp"
             app:color="#e60012"
@@ -48,7 +48,7 @@
             android:layout_marginTop="20dp"
             android:text="斜线"/>
 
-        <com.lxp.widgetview.view.CommonView
+        <com.lxp.widgetview.common.view.CommonView
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:color="#e60012"
@@ -63,7 +63,7 @@
             android:layout_marginTop="20dp"
             android:text="空心圆"/>
         <!--圆，空心-->
-        <com.lxp.widgetview.view.CommonView
+        <com.lxp.widgetview.common.view.CommonView
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:color="#e60012"
@@ -77,7 +77,7 @@
             android:layout_marginTop="20dp"
             android:text="实心圆"/>
         <!--圆，实心-->
-        <com.lxp.widgetview.view.CommonView
+        <com.lxp.widgetview.common.view.CommonView
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:color="#e60012"
@@ -91,7 +91,7 @@
             android:layout_marginTop="20dp"
             android:text="空心矩形"/>
         <!--矩形，空心-->
-        <com.lxp.widgetview.view.CommonView
+        <com.lxp.widgetview.common.view.CommonView
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:color="#e60012"
@@ -105,7 +105,7 @@
             android:layout_marginTop="20dp"
             android:text="实心矩形"/>
         <!--矩形，实心-->
-        <com.lxp.widgetview.view.CommonView
+        <com.lxp.widgetview.common.view.CommonView
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:color="#e60012"

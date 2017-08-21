@@ -1,4 +1,4 @@
-package com.lxp.widgetview.activity.bezier.activity;
+package com.lxp.widgetview.bezier.activity;
 
 import android.app.Activity;
 import android.content.Intent;

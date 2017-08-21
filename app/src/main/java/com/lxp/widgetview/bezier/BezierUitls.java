@@ -1,4 +1,4 @@
-package com.lxp.widgetview.activity.bezier;
+package com.lxp.widgetview.bezier;
 
 /**
  * 获取贝塞尔点

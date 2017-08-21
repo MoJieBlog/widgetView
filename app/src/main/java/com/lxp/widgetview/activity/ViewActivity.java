@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.lxp.widgetview.R;
+import com.lxp.widgetview.timer.activity.TimeViewActivity;
 
 public class ViewActivity extends AppCompatActivity implements View.OnClickListener {
 
