@@ -25,7 +25,8 @@
         <activity android:name=".draw.activity.DrawActivity" />
         <activity android:name=".bezier.activity.BezierActivity" />
         <activity android:name=".bezier.activity.OneBezierActivity" />
-        <activity android:name=".bezier.activity.TwoBezierActivity"></activity>
+        <activity android:name=".bezier.activity.TwoBezierActivity" />
+        <activity android:name=".inflate.activity.InflateTestActivity"></activity>
     </application>
 
 </manifest>
