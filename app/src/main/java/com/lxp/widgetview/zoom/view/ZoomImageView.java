@@ -19,6 +19,7 @@ import android.widget.ImageView;
 
 import com.lxp.utils.LogUtils;
 
+
 /**
  * Created by Li Xiaopeng on 17/8/23.
  * 支持缩放的ImageView
@@ -87,6 +88,9 @@ public class ZoomImageView extends ImageView implements OnScaleGestureListener,
     private boolean isCheckTopAndBottom = true;
     private boolean isCheckLeftAndRight = true;
 
+    private OnClickListener clickListener;
+    private OnLongClickListener longClickListener;
+
     public ZoomImageView(Context context) {
         this(context, null);
     }
@@ -114,6 +118,18 @@ public class ZoomImageView extends ImageView implements OnScaleGestureListener,
                             isAutoScale = true;
                         }
                         return true;
+                    }
+
+                    @Override
+                    public boolean onSingleTapUp(MotionEvent e) {
+                        clickListener.onClick();
+                        return true;//必须false,不然双击事件不触发啊
+                    }
+
+                    @Override
+                    public void onLongPress(MotionEvent e) {
+                        super.onLongPress(e);
+                        longClickListener.onLongClick();
                     }
                 });
         mScaleGestureDetector = new ScaleGestureDetector(context, this);
@@ -497,21 +513,38 @@ public class ZoomImageView extends ImageView implements OnScaleGestureListener,
      * 设置最大放大倍数，单位当前控件的宽度
      * 不能小于1单位
      */
-    public static void setScaleMax(float fold){
-        if (fold<1){
+    public static void setScaleMax(float fold) {
+        if (fold < 1) {
             return;
         }
-        SCALE_MAX = fold*initScale;
+        SCALE_MAX = fold * initScale;
     }
 
     /**
      * 设置最小放大倍数，单位当前控件的宽度
      * 不能大于1单位
      */
-    public static void setScaleMin(float fold){
-        if (fold>1){
+    public static void setScaleMin(float fold) {
+        if (fold > 1) {
             return;
         }
-        SCALE_MIN = fold*initScale;
+        SCALE_MIN = fold * initScale;
+    }
+
+    public interface OnClickListener {
+        void onClick();
+    }
+
+    public interface OnLongClickListener {
+        boolean onLongClick();
+    }
+
+
+    public void setZoomOnClickLister(OnClickListener lister) {
+        this.clickListener = lister;
+    }
+
+    public void setZoomOnLongClickLister(OnLongClickListener lister) {
+        this.longClickListener = lister;
     }
 }
