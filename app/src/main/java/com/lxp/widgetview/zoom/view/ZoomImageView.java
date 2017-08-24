@@ -54,7 +54,7 @@ public class ZoomImageView extends ImageView implements OnScaleGestureListener,
     /**
      * 初始化时的缩放比例，如果图片宽或高大于屏幕，此值将小于0
      */
-    private float initScale;//设置为控件的宽度
+    private static float initScale;//设置为控件的宽度
     public static float SCALE_MAX;//设置为2*initScale
     private static float SCALE_MIN;//设置为0.5*initScale
     private boolean once = true;//首次进入时测量量图片和布局的宽高
@@ -493,4 +493,25 @@ public class ZoomImageView extends ImageView implements OnScaleGestureListener,
         return Math.sqrt((dx * dx) + (dy * dy)) >= mTouchSlop;
     }
 
+    /**
+     * 设置最大放大倍数，单位当前控件的宽度
+     * 不能小于1单位
+     */
+    public static void setScaleMax(float fold){
+        if (fold<1){
+            return;
+        }
+        SCALE_MAX = fold*initScale;
+    }
+
+    /**
+     * 设置最小放大倍数，单位当前控件的宽度
+     * 不能大于1单位
+     */
+    public static void setScaleMin(float fold){
+        if (fold>1){
+            return;
+        }
+        SCALE_MIN = fold*initScale;
+    }
 }
