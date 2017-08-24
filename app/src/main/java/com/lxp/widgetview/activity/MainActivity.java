@@ -13,13 +13,15 @@ import com.lxp.widgetview.common.activity.CommonActivity;
 import com.lxp.widgetview.drag.activity.DragActivity;
 import com.lxp.widgetview.draw.activity.DrawActivity;
 import com.lxp.widgetview.inflate.activity.InflateTestActivity;
+import com.lxp.widgetview.zoom.activity.ImageTypeActivity;
+import com.lxp.widgetview.zoom.activity.ZoomImageActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
     private Activity mActivity = MainActivity.this;
 
-    private Button btn_line,btn_view,btn_drag,btn_draw,btn_bezier,btn_inflate;
+    private Button btn_line,btn_view,btn_drag,btn_draw,btn_bezier,btn_inflate,btn_zoom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_draw = (Button) findViewById(R.id.btn_draw);
         btn_bezier = (Button) findViewById(R.id.btn_bezier);
         btn_inflate = (Button) findViewById(R.id.btn_inflate);
+        btn_zoom = (Button) findViewById(R.id.btn_zoom);
         btn_line.setOnClickListener(this);
         btn_view.setOnClickListener(this);
         btn_drag.setOnClickListener(this);
         btn_draw.setOnClickListener(this);
         btn_bezier.setOnClickListener(this);
         btn_inflate.setOnClickListener(this);
+        btn_zoom.setOnClickListener(this);
     }
 
     @Override
@@ -70,6 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_inflate:
                 intent.setClass(mActivity,InflateTestActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_zoom:
+                intent.setClass(mActivity,ImageTypeActivity.class);
                 startActivity(intent);
                 break;
             default:

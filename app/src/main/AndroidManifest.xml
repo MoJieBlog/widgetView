@@ -26,7 +26,10 @@
         <activity android:name=".bezier.activity.BezierActivity" />
         <activity android:name=".bezier.activity.OneBezierActivity" />
         <activity android:name=".bezier.activity.TwoBezierActivity" />
-        <activity android:name=".inflate.activity.InflateTestActivity"></activity>
+        <activity android:name=".inflate.activity.InflateTestActivity" />
+        <activity android:name=".zoom.activity.ZoomImageActivity" />
+        <activity android:name=".zoom.activity.ImageTypeActivity" />
+        <activity android:name=".zoom.activity.WideImageActivity"></activity>
     </application>
 
 </manifest>
