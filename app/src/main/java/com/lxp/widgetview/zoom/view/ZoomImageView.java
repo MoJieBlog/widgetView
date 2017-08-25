@@ -437,7 +437,10 @@ public class ZoomImageView extends ImageView implements OnScaleGestureListener,
     }
 
     private void move() {
-        float rate = mDrawableWidth / mDrawableHeight;//缩放前的比例
+        /**
+         * 一定要转为float类型，不然会变int
+         */
+        float rate = (float) (1.0* mDrawableWidth / mDrawableHeight);//缩放前的比例
         float drawable_height = mWidth / rate;//缩放后的高度
         if (drawable_height < mHeight) {//图片高度小于控件高度时显示在中心
             LogUtils.logE(TAG, "move: 中心");
