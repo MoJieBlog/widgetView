@@ -18,6 +18,7 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
 import com.lxp.utils.LogUtils;
+import com.lxp.utils.ToastUtils;
 
 
 /**
@@ -95,7 +96,7 @@ public class ZoomImageView extends ImageView implements OnScaleGestureListener,
         this(context, null);
     }
 
-    public ZoomImageView(Context context, AttributeSet attrs) {
+    public ZoomImageView(final Context context, AttributeSet attrs) {
         super(context, attrs);
         super.setScaleType(ScaleType.MATRIX);//强制设置模式
         mGestureDetector = new GestureDetector(context,
@@ -121,9 +122,9 @@ public class ZoomImageView extends ImageView implements OnScaleGestureListener,
                     }
 
                     @Override
-                    public boolean onSingleTapUp(MotionEvent e) {
+                    public boolean onSingleTapConfirmed(MotionEvent e) {
                         clickListener.onClick();
-                        return true;//必须false,不然双击事件不触发啊
+                        return super.onSingleTapConfirmed(e);
                     }
 
                     @Override
