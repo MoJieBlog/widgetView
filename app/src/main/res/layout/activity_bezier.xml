@@ -24,10 +24,10 @@
             android:text="二阶贝塞尔曲线"/>
 
         <Button
-            android:id="@+id/btn_three"
+            android:id="@+id/btn_circle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="三阶贝塞尔曲线"/>
+            android:text="贝塞尔圆变心形"/>
 
         <Button
             android:id="@+id/btn_multiple"

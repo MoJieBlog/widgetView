@@ -29,7 +29,8 @@
         <activity android:name=".inflate.activity.InflateTestActivity" />
         <activity android:name=".zoom.activity.ZoomImageActivity" />
         <activity android:name=".zoom.activity.ImageTypeActivity" />
-        <activity android:name=".zoom.activity.WideImageActivity"></activity>
+        <activity android:name=".zoom.activity.WideImageActivity" />
+        <activity android:name=".bezier.activity.Circle2HeartActivity"></activity>
     </application>
 
 </manifest>

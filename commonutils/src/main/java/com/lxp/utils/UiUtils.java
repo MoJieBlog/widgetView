@@ -45,6 +45,21 @@ public class UiUtils {
 
         return width;
     }
+
+    /**
+     * 获取屏幕高
+     * @param context
+     * @return
+     */
+    public static int getWinHeight(Context context){
+        WindowManager wm = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+
+        int width = wm.getDefaultDisplay().getWidth();
+        int height = wm.getDefaultDisplay().getHeight();
+
+        return height;
+    }
     /**
      * dp转px
      *

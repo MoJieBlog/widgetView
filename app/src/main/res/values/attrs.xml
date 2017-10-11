@@ -7,4 +7,23 @@
         <attr name="color" format="color"/>
         <attr name="orientation" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer"/>
+        <attr name="animDuration" format="integer"/>
+        <attr name="animAlphaStart" format="float"/>
+        <attr name="expandDrawable" format="reference"/>
+        <attr name="collapseDrawable" format="reference"/>
+
+        <!-- 触发按钮属性 -->
+        // 展开、收起 文字颜色
+        <attr name="ectextColor" format="reference"/>
+        // 展开、收起 文字字号
+        <attr name="ectextTextSize" format="reference"/>
+        // 展开时展示的文本
+        <attr name="expandText" format="reference"/>
+        // 收起时展示的文本
+        <attr name="collapseText" format="reference"/>
+        <!-- 触发按钮属性 -->
+    </declare-styleable>
 </resources>

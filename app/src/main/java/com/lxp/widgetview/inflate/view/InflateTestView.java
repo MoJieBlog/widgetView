@@ -16,10 +16,6 @@ import com.lxp.widgetview.R;
 
 public class InflateTestView extends RelativeLayout {
 
-    Button btn_one;
-    Button btn_two;
-    Button btn_three;
-    Button btn_multiple;
 
     public InflateTestView(Context context) {
         super(context);
@@ -42,9 +38,5 @@ public class InflateTestView extends RelativeLayout {
     }
 
     private void initView(View inflateView) {
-        btn_one = (Button) inflateView.findViewById(R.id.btn_one);
-        btn_two = (Button) inflateView.findViewById(R.id.btn_two);
-        btn_three = (Button) inflateView.findViewById(R.id.btn_three);
-        btn_multiple = (Button) inflateView.findViewById(R.id.btn_multiple);
     }
 }

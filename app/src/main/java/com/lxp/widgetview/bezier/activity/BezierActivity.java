@@ -12,7 +12,7 @@ import com.lxp.widgetview.R;
 
 public class BezierActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn_one, btn_two, btn_three, btn_multiple;
+    private Button btn_one, btn_two, btn_circle, btn_multiple;
 
     private static final String TAG = "BezierActivity";
     private Activity mActivity = this;
@@ -28,12 +28,12 @@ public class BezierActivity extends AppCompatActivity implements View.OnClickLis
     private void init() {
         btn_one = (Button) findViewById(R.id.btn_one);
         btn_two = (Button) findViewById(R.id.btn_two);
-        btn_three = (Button) findViewById(R.id.btn_three);
+        btn_circle = (Button) findViewById(R.id.btn_circle);
         btn_multiple = (Button) findViewById(R.id.btn_multiple);
 
         btn_one.setOnClickListener(this);
         btn_two.setOnClickListener(this);
-        btn_three.setOnClickListener(this);
+        btn_circle.setOnClickListener(this);
         btn_multiple.setOnClickListener(this);
     }
 
@@ -49,8 +49,9 @@ public class BezierActivity extends AppCompatActivity implements View.OnClickLis
                 intent = new Intent(mActivity,TwoBezierActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_three:
-                ToastUtils.setToast(mActivity,"敬请期待");
+            case R.id.btn_circle:
+                intent = new Intent(mActivity,Circle2HeartActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_multiple:
                 ToastUtils.setToast(mActivity,"敬请期待");
