@@ -3,6 +3,7 @@
     package="com.lxp.widgetview">
 
     <application
+        android:name="com.lxp.widgetview.MApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

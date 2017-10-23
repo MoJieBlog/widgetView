@@ -2,10 +2,14 @@ package com.lxp.widgetview.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.lxp.widgetview.R;
 import com.lxp.widgetview.bezier.activity.BezierActivity;
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Activity mActivity = MainActivity.this;
 
     private Button btn_line,btn_view,btn_drag,btn_draw,btn_bezier,btn_inflate,btn_zoom;
+    private TextView tv_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void init() {
+        tv_text = (TextView) findViewById(R.id.tv_text);
         btn_line = (Button) findViewById(R.id.btn_line);
         btn_view = (Button) findViewById(R.id.btn_view);
         btn_drag = (Button) findViewById(R.id.btn_drag);
@@ -46,6 +52,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_bezier.setOnClickListener(this);
         btn_inflate.setOnClickListener(this);
         btn_zoom.setOnClickListener(this);
+
+
+
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus){
+            int measuredHeight = tv_text.getMeasuredHeight();
+            int measuredWidth = tv_text.getMeasuredWidth();
+            Shader shader = new LinearGradient(0,0,measuredWidth/5,measuredHeight/5, Color.RED,Color.GREEN, Shader.TileMode.MIRROR);
+            tv_text.getPaint().setShader(shader);
+        }
     }
 
     @Override
