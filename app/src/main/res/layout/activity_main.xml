@@ -57,6 +57,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="缩放相关" />
+        <Button
+            android:id="@+id/btn_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="加载动画/签到动画" />
+        <Button
+            android:id="@+id/btn_shape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="图形" />
+        <Button
+            android:id="@+id/btn_photoView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="photoView" />
 
     </LinearLayout>
 

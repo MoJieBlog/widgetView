@@ -3,8 +3,9 @@
     package="com.lxp.widgetview">
 
     <application
-        android:name="com.lxp.widgetview.MApplication"
+        android:name=".MApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -31,7 +32,12 @@
         <activity android:name=".zoom.activity.ZoomImageActivity" />
         <activity android:name=".zoom.activity.ImageTypeActivity" />
         <activity android:name=".zoom.activity.WideImageActivity" />
-        <activity android:name=".bezier.activity.Circle2HeartActivity"></activity>
+        <activity android:name=".bezier.activity.Circle2HeartActivity" />
+        <activity android:name=".loading.activity.LoadingActivity" />
+        <activity android:name=".shape.actvity.ShapeActivity" />
+        <activity android:name=".activity.PhotoViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/myTransparent"></activity>
     </application>
 
 </manifest>
