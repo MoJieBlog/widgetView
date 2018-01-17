@@ -5,10 +5,20 @@
     android:layout_height="match_parent">
 
 
-    <com.lxp.widgetview.photoview.ViewPagerFixed
+    <android.support.v4.view.ViewPager
         android:id="@+id/pics_viewpager"
         android:layout_width="match_parent"
+
         android:layout_height="match_parent"
         />
+
+    <com.lxp.widgetview.photoview.IPhotoView
+        android:id="@+id/iv_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000"
+        android:visibility="gone"
+        android:scaleType="center"
+        android:src="@mipmap/timg"/>
 
 </FrameLayout>

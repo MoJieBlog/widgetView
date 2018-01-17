@@ -19,7 +19,7 @@ import com.lxp.widgetview.R;
 
 public class PicViewFragment2 extends Fragment implements View.OnClickListener {
 
-    PhotoView picImageview;
+    PhotoView2 picImageview;
     private Context mContext;
     /**
      *  获取fragment
@@ -73,9 +73,9 @@ public class PicViewFragment2 extends Fragment implements View.OnClickListener {
     }
 
     private void initView( View view) {
-        picImageview = (PhotoView) view.findViewById(R.id.pic_imageview);
+        picImageview = (PhotoView2) view.findViewById(R.id.pic_imageview);
         picImageview.enable();
-        picImageview.setDragFinish(true, new PhotoView.FinishCallback() {
+        picImageview.setDragFinish(true, new PhotoView2.FinishCallback() {
             @Override
             public void doFinish() {
                 getActivity().finish();

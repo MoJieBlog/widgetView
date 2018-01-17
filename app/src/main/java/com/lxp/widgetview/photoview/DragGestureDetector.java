@@ -22,21 +22,23 @@ public class DragGestureDetector {
     }
 
     public void onTouchEvent(MotionEvent event) {
-
-        int action = event.getAction();
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                onActionDown(event);
-                break;
-            case MotionEvent.ACTION_MOVE:
-                onActionMove(event);
-                callback.drag(nowX,nowY,mDownX,mDownY);
-                break;
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL:
-                callback.dragUp(event.getX(),event.getY(),mDownX,mDownY);
-                onActionUp(event);
-                break;
+        int pointerCount = event.getPointerCount();
+        if (pointerCount==1){
+            int action = event.getAction();
+            switch (action) {
+                case MotionEvent.ACTION_DOWN:
+                    onActionDown(event);
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    onActionMove(event);
+                    callback.drag(nowX,nowY,mDownX,mDownY);
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    callback.dragUp(event.getX(),event.getY(),mDownX,mDownY);
+                    onActionUp(event);
+                    break;
+            }
         }
     }
 

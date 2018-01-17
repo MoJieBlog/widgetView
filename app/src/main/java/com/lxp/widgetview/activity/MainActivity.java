@@ -1,5 +1,9 @@
 package com.lxp.widgetview.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,9 +12,14 @@ import android.graphics.Shader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.lxp.utils.LogUtils;
 import com.lxp.widgetview.R;
 import com.lxp.widgetview.bezier.activity.BezierActivity;
 import com.lxp.widgetview.common.activity.CommonActivity;
@@ -55,12 +64,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_inflate.setOnClickListener(this);
         btn_zoom.setOnClickListener(this);
 
+        LogUtils.logE(TAG, "init: "+Integer.parseInt("111111",2));//二进制转十进制
+        LogUtils.logE(TAG, "init: "+Integer.toBinaryString(63));//十进制转二进制
+        LogUtils.logE(TAG, "init: "+Integer.toOctalString(63));//十进制转八进制
+        LogUtils.logE(TAG, "init: "+Integer.toHexString(63));//十进制转十六进制
 
         findViewById(R.id.btn_loading).setOnClickListener(this);
         findViewById(R.id.btn_shape).setOnClickListener(this);
         findViewById(R.id.btn_photoView).setOnClickListener(this);
+        findViewById(R.id.checkView).setOnClickListener(this);
 
+        doAnimation(tv_text);
+    }
 
+    /**
+     * 做呼吸灯动画
+     *
+     * @param view
+     */
+    private void doAnimation(View view) {
+        tv_text.setText("6666666666666666666");
+        AnimatorSet set = new AnimatorSet();
+        ObjectAnimator fade = ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.0f,1.0f);
+        fade.setDuration(3000);
+        /*fade.setRepeatMode(ValueAnimator.REVERSE);
+        fade.setRepeatCount(1);*/
+        fade.setInterpolator(new AccelerateDecelerateInterpolator());
+        fade.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                tv_text.setText("7777777777777777");
+            }
+        });
+
+        set.playSequentially(fade);
+        set.start();
     }
 
     @Override
@@ -116,6 +169,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_photoView:
                 intent.setClass(mActivity, PhotoViewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.checkView:
+                intent.setClass(mActivity, CheckViewActivity.class);
                 startActivity(intent);
                 break;
             default:

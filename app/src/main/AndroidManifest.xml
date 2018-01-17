@@ -35,9 +35,11 @@
         <activity android:name=".bezier.activity.Circle2HeartActivity" />
         <activity android:name=".loading.activity.LoadingActivity" />
         <activity android:name=".shape.actvity.ShapeActivity" />
-        <activity android:name=".activity.PhotoViewActivity"
+        <activity
+            android:name=".activity.PhotoViewActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/myTransparent"></activity>
+            android:theme="@style/myTransparent" />
+        <activity android:name=".activity.CheckViewActivity"></activity>
     </application>
 
 </manifest>

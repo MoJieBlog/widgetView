@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.lxp.widgetview.photoview.PhotoView
+        <com.lxp.widgetview.photoview.PhotoView2
             android:id="@+id/pic_imageview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

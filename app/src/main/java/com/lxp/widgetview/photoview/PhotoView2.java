@@ -19,8 +19,11 @@ import android.widget.ImageView;
 import android.widget.OverScroller;
 import android.widget.Scroller;
 
+import com.lxp.utils.LogUtils;
+import com.lxp.utils.UiUtils;
 
-public class PhotoView extends ImageView {
+
+public class PhotoView2 extends ImageView {
 
     private final static int MIN_ROTATE = 35;
     private final static int ANIMA_DURING = 340;
@@ -40,7 +43,6 @@ public class PhotoView extends ImageView {
     private Matrix mSynthesisMatrix = new Matrix();
     private Matrix mTmpMatrix = new Matrix();
 
-    private DragGestureDetector mDragGestureDetector;
     private RotateGestureDetector mRotateDetector;
     private GestureDetector mDetector;
     private ScaleGestureDetector mScaleDetector;
@@ -58,8 +60,6 @@ public class PhotoView extends ImageView {
     // 当前是否处于放大状态
     private boolean isZoonUp;
     private boolean canRotate;
-
-    private boolean dragFinish = false;//拖拽关闭
 
     private boolean imgLargeWidth;
     private boolean imgLargeHeight;
@@ -92,26 +92,19 @@ public class PhotoView extends ImageView {
 
     private OnLongClickListener mLongClick;
 
-    public void setDragFinish(boolean doFinish,FinishCallback finishCallback) {
-        dragFinish = doFinish;
-        mFinishCallback = finishCallback;
-    }
+    private DragGestureDetector mDragGestureDetector;
 
-    public boolean getIsZoomUp() {
-        return isZoonUp;
-    }
-
-    public PhotoView(Context context) {
+    public PhotoView2(Context context) {
         super(context);
         init();
     }
 
-    public PhotoView(Context context, AttributeSet attrs) {
+    public PhotoView2(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public PhotoView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PhotoView2(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -157,6 +150,106 @@ public class PhotoView extends ImageView {
                 initBase();
             }
         }
+    }
+
+    private float mAlpha = 1;
+    private float finishY = 500;//可关闭当前界面的临界值
+    private DragGestureDetector.DragCallback mDragCallback = new DragGestureDetector.DragCallback() {
+        @Override
+        public void drag(float nowX, float nowY, float downX, float downY) {
+            if (Math.abs(nowY - downY) > Math.abs(nowX - downX)) {//Y 轴移动
+                //改变图片位置
+                //根据按下点改变图片的大小,位移
+                setScaleTranslateWithDrag(nowX, nowY, downX, downY);
+                //改变透明度
+                setAlphaWithDrag(nowY, downY);
+            }
+        }
+
+        @Override
+        public void dragUp(float upX, float upY, float downX, float downY) {
+            LogUtils.logE("=======", "dragUp: ");
+            if (upY - downY > finishY) {
+                mFinishCallback.doFinish();
+            } else {
+                mAlpha = 1.0f;
+                PhotoView2.this.setAlpha(mAlpha);
+                int dp_20 = UiUtils.dip2px(getContext(), 20);
+                if (upX-downX>dp_20||upY-downY>dp_20){//用于判断是否是双击的抬起
+                    LogUtils.logE("=======", "upX: " +upX);
+                    LogUtils.logE("=======", "downX: " +downX);
+                    LogUtils.logE("=======", "upY: " +upY);
+                    LogUtils.logE("=======", "downY: " +downY);
+                    LogUtils.logE("=======", "dragUp: =====");
+                    resetView();
+                }
+            }
+        }
+    };
+
+    /**
+     * 根据拖拽进行缩放和移动
+     *
+     * @param nowX
+     * @param nowY
+     * @param downX
+     * @param downY
+     */
+    private void setScaleTranslateWithDrag(float nowX, float nowY, float downX, float downY) {
+        float dy = nowY - downY;
+        float dx = nowX - downX;
+
+        Drawable img = getDrawable();
+
+        int w = getWidth();
+        int h = getHeight();
+        int imgw = getDrawableWidth(img);
+        int imgh = getDrawableHeight(img);
+        mBaseMatrix.reset();
+        int drawableHeight = getDrawableHeight(getDrawable());
+        int drawableWidth = getDrawableWidth(getDrawable());
+        float centerY = mScreenCenter.y - drawableHeight / 2;
+        float centerX = mScreenCenter.x - drawableWidth / 2;
+        mBaseMatrix.postTranslate(centerX + dx, centerY + dy);
+        //setImageMatrix(mBaseMatrix);
+    }
+
+    /**
+     * 恢复到刚进来时候的样子，复制代码不明白什么意思
+     */
+    private void resetView() {
+        initBase();
+    }
+
+    /**
+     * 根据拖拽改变透明度
+     *
+     * @param nowY
+     * @param downY
+     */
+    private void setAlphaWithDrag(float nowY, float downY) {
+        float dy = nowY - downY;
+        float percent = (0.5f * dy / finishY);//实际上当透明度到50%时，就不再继续变不透明，所以dy*0.3
+        mAlpha = 1 - percent;
+        if (mAlpha > 1) {
+            mAlpha = 1;
+        } else if (mAlpha < 0.5f) {
+            mAlpha = 0.5f;
+        }
+        this.setAlpha(mAlpha);
+    }
+
+    private boolean dragFinish = false;//拖拽关闭
+
+    public void setDragFinish(boolean doFinish, FinishCallback finishCallback) {
+        dragFinish = doFinish;
+        mFinishCallback = finishCallback;
+    }
+
+    private FinishCallback mFinishCallback;
+
+    public interface FinishCallback {
+        void doFinish();
     }
 
     @Override
@@ -307,6 +400,7 @@ public class PhotoView extends ImageView {
         }
 
         float scale = sx < sy ? sx : sy;
+
         mBaseMatrix.reset();
         mBaseMatrix.postTranslate(tx, ty);
         mBaseMatrix.postScale(scale, scale, mScreenCenter.x, mScreenCenter.y);
@@ -574,7 +668,6 @@ public class PhotoView extends ImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         try {
-            setAlpha(mAlpha);
             super.onDraw(canvas);
         } catch (Exception e) {
             System.out
@@ -699,99 +792,6 @@ public class PhotoView extends ImageView {
         return Math.abs(Math.round(rect.left) - (mWidgetRect.width() - rect.width()) / 2) < 1;
     }
 
-    private float finishY = 500;//可关闭当前界面的临界值
-    private DragGestureDetector.DragCallback mDragCallback = new DragGestureDetector.DragCallback() {
-        @Override
-        public void drag(float nowX, float nowY, float downX, float downY) {
-            if (Math.abs(nowY - downY) > Math.abs(nowX - downX)) {//Y 轴移动
-                //改变图片位置
-                //根据按下点改变图片的大小,位移
-                setScaleTranslateWithDrag(nowX,nowY, downX,downY);
-                //改变透明度
-                setAlphaWithDrag(nowY, downY);
-                invalidate();
-            }
-        }
-
-        @Override
-        public void dragUp(float upX, float upY, float downX, float downY) {
-
-            if (upY-downY>finishY){
-                mFinishCallback.doFinish();
-            }else{
-                mAlpha = 1.0f;
-                initBase();
-            }
-        }
-    };
-
-    /**
-     * 根据拖拽改变缩放
-     * @param nowY
-     * @param downY
-     */
-    private void setScaleTranslateWithDrag(float nowX, float nowY, float downX, float downY) {
-        float dy = nowY - downY;
-        float dx = nowX - downX;
-
-        Drawable img = getDrawable();
-
-        int w = getWidth();
-        int h = getHeight();
-        int imgw = getDrawableWidth(img);
-        int imgh = getDrawableHeight(img);
-
-        mBaseRect.set(0, 0, imgw, imgh);
-
-        // 以图片中心点居中位移
-        int tx = (w - imgw) / 2;
-        int ty = (h - imgh) / 2;
-
-        float sx = 1;
-        float sy = 1;
-
-        // 缩放，默认不超过屏幕大小
-        if (imgw > w) {
-            sx = (float) w / imgw;
-        }
-
-        if (imgh > h) {
-            sy = (float) h / imgh;
-        }
-
-        float scale = sx < sy ? sx : sy;
-        mBaseMatrix.reset();
-       // mBaseMatrix.postTranslate(tx, ty);
-
-
-        int drawableHeight = getDrawableHeight(getDrawable());
-        int drawableWidth = getDrawableWidth(getDrawable());
-        float centerY =  mScreenCenter.y - drawableHeight / 2;
-        float centerX =  mScreenCenter.x - drawableWidth / 2;
-
-        mBaseMatrix.postTranslate(centerX+dx,centerY+dy);
-
-        mBaseMatrix.postScale(scale, scale, mScreenCenter.x, mScreenCenter.y);
-    }
-
-    private float mAlpha = 1;
-
-    /**
-     * 根据拖拽改变透明度
-     * @param nowY
-     * @param downY
-     */
-    private void setAlphaWithDrag(float nowY, float downY) {
-        float dy = nowY - downY;
-        float percent = (0.5f*dy / finishY);//实际上当透明度到50%时，就不再继续变不透明，所以dy*0.3
-        mAlpha = 1 - percent;
-        if (mAlpha > 1) {
-            mAlpha = 1;
-        } else if (mAlpha < 0.5f) {
-            mAlpha = 0.5f;
-        }
-    }
-
     private RotateGestureDetector.OnRotateListener mRotateListener = new RotateGestureDetector.OnRotateListener() {
 
         @Override
@@ -879,7 +879,7 @@ public class PhotoView extends ImageView {
         @Override
         public void run() {
             if (mClickListener != null) {
-                mClickListener.onClick(PhotoView.this);
+                mClickListener.onClick(PhotoView2.this);
             }
         }
     };
@@ -889,7 +889,7 @@ public class PhotoView extends ImageView {
         @Override
         public void onLongPress(MotionEvent e) {
             if (mLongClick != null) {
-                mLongClick.onLongClick(PhotoView.this);
+                mLongClick.onLongClick(PhotoView2.this);
             }
         }
 
@@ -1042,7 +1042,7 @@ public class PhotoView extends ImageView {
             mTranslate.withScale(from, to);
             mTranslate.start();
 
-            return false;
+            return true;
         }
     };
 
@@ -1374,10 +1374,6 @@ public class PhotoView extends ImageView {
         mTranslateY = 0;
     }
 
-    private FinishCallback mFinishCallback;
-    public interface FinishCallback{
-        void doFinish();
-    }
     public interface ClipCalculate {
         float calculateTop();
     }
