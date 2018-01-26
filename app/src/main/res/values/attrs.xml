@@ -8,6 +8,7 @@
         <attr name="orientation" format="integer"/>
     </declare-styleable>
 
+
     <declare-styleable name="ExpandableTextView">
         <attr name="maxCollapsedLines" format="integer"/>
         <attr name="animDuration" format="integer"/>
@@ -25,5 +26,19 @@
         // 收起时展示的文本
         <attr name="collapseText" format="reference"/>
         <!-- 触发按钮属性 -->
+    </declare-styleable>
+
+    <declare-styleable name="LSwipeRefreshLayout">
+        <attr name="head_type" format="integer"/>
+        <attr name="foot_type" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="GapLine">
+        <attr name="dashWidth" format="dimension"/>
+        <attr name="lineWidth" format="dimension"/>
+        <attr name="lineHeight" format="dimension"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="dashOrientation" format="integer"/>
+
     </declare-styleable>
 </resources>

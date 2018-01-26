@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.lxp.utils.LogUtils;
+import com.lxp.widgetview.GapLine;
 import com.lxp.widgetview.R;
 import com.lxp.widgetview.bezier.activity.BezierActivity;
 import com.lxp.widgetview.common.activity.CommonActivity;
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.checkView).setOnClickListener(this);
 
         doAnimation(tv_text);
+
+        GapLine gap_line = (GapLine) findViewById(R.id.gap_line);
+        gap_line.setDashOrientation(GapLine.ORIENTATION_VERTICAL);
+        gap_line.setLineColor(Color.BLUE);
     }
 
     /**
