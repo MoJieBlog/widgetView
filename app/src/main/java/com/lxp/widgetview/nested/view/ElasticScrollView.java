@@ -1,4 +1,4 @@
-package com.lxp.widgetview;
+package com.lxp.widgetview.nested.view;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 
 import com.lxp.utils.LogUtils;
 
@@ -95,7 +96,7 @@ public class ElasticScrollView extends NestedScrollView {
         int scrollY = mView.getScrollY();
         ValueAnimator valueAnimator = ValueAnimator.ofInt(scrollY,0);
         valueAnimator.setDuration(400);
-        valueAnimator.setInterpolator(new AccelerateInterpolator());
+        valueAnimator.setInterpolator(new DecelerateInterpolator(2));
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

@@ -39,7 +39,9 @@
             android:name=".activity.PhotoViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/myTransparent" />
-        <activity android:name=".activity.CheckViewActivity"></activity>
+        <activity android:name=".activity.CheckViewActivity" />
+        <activity android:name=".nested.activity.StickerActivity"></activity>
+        <activity android:name=".nested.activity.StickyNavLayoutActivity"></activity>
     </application>
 
 </manifest>

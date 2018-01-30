@@ -1,6 +1,7 @@
 package com.lxp.widgetview;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
@@ -14,6 +15,8 @@ import android.widget.ImageView;
  */
 
 public class RoundImageView extends ImageView {
+
+    Drawable drawable;
 
     public RoundImageView(Context context) {
         super(context);
@@ -31,7 +34,7 @@ public class RoundImageView extends ImageView {
     }
 
     private void init() {
-        Drawable drawable = getDrawable();
+         drawable = getDrawable();
     }
 
     @Override
@@ -43,10 +46,17 @@ public class RoundImageView extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        RectF rectf = new RectF();
         Paint paint = new Paint();
-        canvas.drawRoundRect(rectf,0,0,paint);
+        RectF rectF = new RectF(0,0,wide,height);
+        Bitmap port = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_4444);
+        Canvas portCanvas = new Canvas(port);
+
+        canvas.drawRoundRect(rectF,0,0,paint);
+        canvas.drawBitmap(port, 0, 0, null);
     }
+
+    private int wide;
+    private int height;
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
@@ -56,5 +66,7 @@ public class RoundImageView extends ImageView {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+        wide = w;
+        height = h;
     }
 }

@@ -1,4 +1,4 @@
-package com.lxp.widgetview;
+package com.lxp.widgetview.nested.view;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;

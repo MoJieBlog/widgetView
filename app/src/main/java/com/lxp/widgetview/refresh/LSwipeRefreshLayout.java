@@ -23,6 +23,11 @@ import com.lxp.widgetview.R;
 
 /**
  * 自定义的刷新控件，仿照SwipeRefreshLayout改写
+ * 分析：
+ * 1.刷新控件
+ *      统一添加在控件的上方
+ * 2.加载控件
+ *      对于recyclerView,listView等添加在adapter显示条目的下方，
  * <p>
  * Created by Li Xiaopeng on 18/1/5.
  */
@@ -103,6 +108,7 @@ public class LSwipeRefreshLayout extends ViewGroup implements NestedScrollingPar
         setNestedScrollingEnabled(true);
     }
 
+
     /**
      * 创建刷新和加载的View
      */
@@ -114,7 +120,6 @@ public class LSwipeRefreshLayout extends ViewGroup implements NestedScrollingPar
         if (footType == DEFAULT_TYPE) {
             footLoadView = new DefaultFootLoadingLayout(getContext());
         }
-        addView(footLoadView);
     }
 
     @Override
@@ -234,8 +239,8 @@ public class LSwipeRefreshLayout extends ViewGroup implements NestedScrollingPar
         if (mTarget == null) {
             for (int i = 0; i < getChildCount(); i++) {
                 View child = getChildAt(i);
-                //不是刷新的布局，也不是加载的布局，所以确定为要实现刷新的控件
-                if (!child.equals(headLoadView) && !child.equals(footLoadView)) {
+                //不是刷新的布局，所以确定为要实现刷新的控件
+                if (!child.equals(headLoadView)) {
                     mTarget = child;
                     break;
                 }

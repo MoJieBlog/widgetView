@@ -28,6 +28,8 @@ import com.lxp.widgetview.drag.activity.DragActivity;
 import com.lxp.widgetview.draw.activity.DrawActivity;
 import com.lxp.widgetview.inflate.activity.InflateTestActivity;
 import com.lxp.widgetview.loading.activity.LoadingActivity;
+import com.lxp.widgetview.nested.activity.StickerActivity;
+import com.lxp.widgetview.nested.activity.StickyNavLayoutActivity;
 import com.lxp.widgetview.shape.actvity.ShapeActivity;
 import com.lxp.widgetview.zoom.activity.ImageTypeActivity;
 import com.lxp.widgetview.zoom.activity.ZoomImageActivity;
@@ -74,11 +76,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_shape).setOnClickListener(this);
         findViewById(R.id.btn_photoView).setOnClickListener(this);
         findViewById(R.id.checkView).setOnClickListener(this);
+        findViewById(R.id.sticker).setOnClickListener(this);
+        findViewById(R.id.sticky).setOnClickListener(this);
 
         doAnimation(tv_text);
 
         GapLine gap_line = (GapLine) findViewById(R.id.gap_line);
-        gap_line.setDashOrientation(GapLine.ORIENTATION_VERTICAL);
         gap_line.setLineColor(Color.BLUE);
     }
 
@@ -178,6 +181,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.checkView:
                 intent.setClass(mActivity, CheckViewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.sticky:
+                intent.setClass(mActivity, StickyNavLayoutActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.sticker:
+                intent.setClass(mActivity, StickerActivity.class);
                 startActivity(intent);
                 break;
             default:
