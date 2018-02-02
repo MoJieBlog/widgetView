@@ -12,6 +12,12 @@
   画板<br>
   图片放大控件<br>
   一阶，二阶贝塞尔曲线<br>
+  工具添加debug和release<br>
+  图片缩放控件，稍有BUG，在改<br>
+  弹性ScrollView<br>
+  嵌套控件滚动<br>
+  <br>
+  
   
   正弦线（未完成）<br>
   圆上一点画线（未完成）<br>
